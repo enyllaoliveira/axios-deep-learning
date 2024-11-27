@@ -8,10 +8,13 @@ const handleFindSubmit = (e) => {
   const url = apiUser(id);
 
   const options = {
-    headers: {
-      Authorization: "Bearer Token ",
-      "X-user": "xxx",
-    },
+    transformResponse: axios.defaults.transformResponse.concat((data) => {
+      data.isTransformed = true;
+      data.name = "oi";
+      // se eu quisesse remover algo, poderia:
+      // delete data.address;
+      return data;
+    }),
   };
 
   axios.get(url, options).then(printResponse);

@@ -1,4 +1,4 @@
-const formUser = document.querySelector("[data-form-user]");
+const formFind = document.querySelector("[data-form-find]");
 
 axios.defaults.headers.common = {
   Authorization: "Bearer Token",
